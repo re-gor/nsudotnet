@@ -6,13 +6,11 @@ using System.Threading.Tasks;
 
 namespace Bykhovtsev.Nsudotnet.TicTacToe
 {
-    interface IField
+    public enum Symbol
     {
-        Symbol Winner { get; }
-        bool IsDraw { get; }
-
-        //void CheckWinner();
-        //void CheckDraw();
-
+        Empty,
+        Cross,
+        Nought 
     }
+
 }

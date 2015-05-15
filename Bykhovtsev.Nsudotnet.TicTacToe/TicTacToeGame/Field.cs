@@ -232,19 +232,27 @@ namespace Bykhovtsev.Nsudotnet.TicTacToe
             return _subFields[subFieldNumber / 3, subFieldNumber % 3].IsFull;
         }
 
-        public bool TryPutValue(byte subFieldNumber, byte cellNumber, Symbol value)
+        public bool TryPutValueByFieldNumber(byte subFieldNumber, byte cellNumber, Symbol value)
         {
             if (subFieldNumber > 8)
                 throw new ArgumentException("subFieldNumber should be less than 9");
-            if (_subFields[subFieldNumber / 3, subFieldNumber % 3].IsFull)
-                throw new Exception("Choosen subField is full, you can not put value to it");
             if (cellNumber > 8)
                 throw new ArgumentException("cellNumber should be less than 9");
-            
-            if (_subFields[subFieldNumber / 3, subFieldNumber % 3].GetCellValue(cellNumber) != Symbol.Empty)
+
+            return TryPutValue((byte)((subFieldNumber / 3) * 3 + cellNumber / 3), (byte)(3 * (subFieldNumber % 3) + cellNumber % 3), value);
+        }
+       
+        public bool TryPutValue(byte rowNumber, byte colNumber, Symbol value)
+        {
+            if (colNumber > 9 || rowNumber > 9) 
+                throw new ArgumentException("Numbers should be less than 9");
+            if (_subFields[colNumber / 3, rowNumber / 3].IsFull)
+                throw new Exception("Choosen subField is full, you can not put value to it");
+
+            if (_subFields[rowNumber / 3, colNumber / 3].GetCellValue((byte)(rowNumber % 3), (byte)(colNumber % 3)) != Symbol.Empty)
                 return false;
 
-            _subFields[subFieldNumber / 3, subFieldNumber % 3].TryPutValue(cellNumber, value);
+            _subFields[rowNumber / 3, colNumber / 3].TryPutValue((byte)(rowNumber % 3), (byte)(colNumber % 3), value);
 
             if (Winner == Symbol.Empty)
                 CheckDraw();
@@ -253,6 +261,39 @@ namespace Bykhovtsev.Nsudotnet.TicTacToe
                 CheckWinner();
 
             return true;
+        }
+        
+        public Symbol [,] GetFieldStatus()
+        {
+            Symbol[,] result = new Symbol[9,9];
+
+            for (byte i = 0; i < 3; ++i)
+            {
+                for (byte j = 0; j < 3; ++j)
+                {
+                    for (byte k = 0; k < 3; ++k)
+                    {
+                        for (byte l = 0; l < 3; ++l)
+                        {
+                            result[k + 3 * i, l + 3 * j] = _subFields[i, j].GetCellValue(k, l);
+                        }
+                    }
+                }
+            }
+
+            return result;
+        }
+        public Symbol[,] GetFieldGeneralStatus()
+        {
+            Symbol[,] result = new Symbol[3, 3];
+            for (byte i = 0; i < 3; ++i)
+            {
+                for (byte j = 0; j < 3; ++j)
+                {
+                    result[i, j] = _subFields[i, j].Winner;
+                }
+            }
+            return result;
         }
 
         public void Paint ()

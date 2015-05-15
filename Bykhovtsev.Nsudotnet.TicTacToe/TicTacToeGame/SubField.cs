@@ -184,18 +184,18 @@ namespace Bykhovtsev.Nsudotnet.TicTacToe
             }
         }
 
-        public bool TryPutValue (byte cellNumber, Symbol value)
+        public bool TryPutValue (byte rowNumber, byte colNumber, Symbol value)
         {
             if (IsFull)
                 return false;
-                //throw new InvalidOperationException ("SubField is full. You can not put value into it");
-            if (cellNumber > 8)
-                throw new ArgumentOutOfRangeException("Number of cell should be less than 8");
 
-            if (_cells[cellNumber / 3, cellNumber % 3].Value != Symbol.Empty)
+            if (rowNumber > 2 || colNumber > 2)
+                throw new ArgumentOutOfRangeException("Coordinates should be less than 3");
+
+            if (_cells[rowNumber, colNumber].Value != Symbol.Empty)
                 return false;
 
-            _cells[cellNumber / 3, cellNumber % 3].Value = value;
+            _cells[rowNumber, colNumber].Value = value;
 
             if (Winner == Symbol.Empty)
                 CheckDraw();
@@ -208,10 +208,18 @@ namespace Bykhovtsev.Nsudotnet.TicTacToe
             {
                 IsFull = true;
                 //if (Winner == Symbol.Empty) //field is full and there still no winner
-                    //IsDraw = true;
+                //IsDraw = true;
             }
 
             return true;
+        }
+
+        public bool TryPutValue (byte cellNumber, Symbol value)
+        {
+            if (cellNumber > 8)
+                throw new ArgumentOutOfRangeException("Number of cell should be less than 9");
+
+            return TryPutValue((byte)(cellNumber / 3), (byte)(cellNumber % 3), value);
         }
 
         public Symbol GetCellValue (byte cellNumber)
@@ -220,6 +228,13 @@ namespace Bykhovtsev.Nsudotnet.TicTacToe
                 throw new ArgumentOutOfRangeException("Number of cell should be less than 8");
 
             return _cells[cellNumber / 3, cellNumber % 3].Value;
+        }
+        public Symbol GetCellValue(byte rowNumber, byte colNumber)
+        {
+            if (rowNumber > 2 || colNumber > 2)
+                throw new ArgumentOutOfRangeException("Input numbers should be less than 3");
+
+            return _cells[rowNumber, colNumber].Value;
         }
 
         public string GetRowString (byte rowNumber)
@@ -239,6 +254,22 @@ namespace Bykhovtsev.Nsudotnet.TicTacToe
 
             return sb.ToString();
         }
+        
+        public Symbol[,] GetFieldStatus()
+        {
+            Symbol[,] result = new Symbol[3, 3];
+            for (int i = 0; i < 3; ++i)
+            {
+                for (int j = 0; j < 3; ++j)
+                {
+                    result[i, j] = _cells[i, j].Value;
+                }
+            }
+
+            return result;
+        }
         #endregion
+
+        
     }
 }

@@ -7,8 +7,8 @@
     <ProjectGuid>{61FB736E-225D-4721-B280-A4D8EEBD008D}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Bykhovtsev.Nsudotnet.TicTacToe</RootNamespace>
-    <AssemblyName>Bykhovtsev.Nsudotnet.TicTacToe</AssemblyName>
+    <RootNamespace>Bykhovtsev.Nsudotnet.TicTacToeConsole</RootNamespace>
+    <AssemblyName>Bykhovtsev.Nsudotnet.TicTacToeConsole</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -41,17 +41,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Cell.cs" />
-    <Compile Include="Enums.cs" />
-    <Compile Include="Field.cs" />
-    <Compile Include="Game.cs" />
-    <Compile Include="IField.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SubField.cs" />
+    <Compile Include="TicTacToe.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TicTacToeGame\Bykhovtsev.Nsudotnet.TicTacToe.csproj">
+      <Project>{d62d5d8a-9732-4b9e-9e29-3126d55b317b}</Project>
+      <Name>Bykhovtsev.Nsudotnet.TicTacToe</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

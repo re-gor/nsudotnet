@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Bykhovtsev.Nsudotnet.TicTacToe.Field" BaseTypeListCollapsed="true">
+    <Position X="4.5" Y="2" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAggEEAAAAAAAAAAACgAAAAAgAAAAAAAAAAAAAIAAQ=</HashCode>
+      <FileName>Field.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Bykhovtsev.Nsudotnet.TicTacToe.Game">
+    <Position X="2.5" Y="2" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>ABIAAAAAACAAAAAAAAABAAACAAQAAAAQAAAAABAQAAA=</HashCode>
+      <FileName>Game.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bykhovtsev.Nsudotnet.TicTacToe.Program">
+    <Position X="0.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABIAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bykhovtsev.Nsudotnet.TicTacToe.SubField" BaseTypeListCollapsed="true">
+    <Position X="6.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAEAAIAQAAAFAACAAAAAAgAAAAAIAAAIAAAAAAQ=</HashCode>
+      <FileName>SubField.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Struct Name="Bykhovtsev.Nsudotnet.TicTacToe.Cell">
+    <Position X="8.5" Y="2" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAEAAAAAAAEgAAAEAAAAAAAAIAAAAAgAAAAAiA=</HashCode>
+      <FileName>Cell.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Interface Name="Bykhovtsev.Nsudotnet.TicTacToe.IField">
+    <Position X="6" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAACAAAAAAgAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IField.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="Bykhovtsev.Nsudotnet.TicTacToe.Symbol">
+    <Position X="11" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAAAAAIAAAAAAAAAAAAAAACAAAAAAAA=</HashCode>
+      <FileName>Enums.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
