@@ -67,6 +67,18 @@ namespace Bykhovtsev.Nsudotnet.TicTacToe
         {
             return c1.Value != c2;
         }
+
+        public static explicit operator Symbol (Cell c)
+        {
+            return c.Value;
+        }
+        public static implicit operator Cell(Symbol s)
+        {
+            Cell c = new Cell();
+            c.Value = s;
+            return c;
+        }
+
         public override bool Equals(object obj)
         {
             if (obj is Cell)
