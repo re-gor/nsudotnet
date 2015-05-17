@@ -28,7 +28,7 @@ namespace Bykhovtsev.Nsudotnet.TicTacToeConsole
 
         public static void PlayTicTacToe()
         {
-            InternalGame.Game game = new InternalGame.Game();
+            InternalGame.IGame game = new InternalGame.Game();
             while (!game.IsGameStopped)
             {
                 Console.Clear();
@@ -95,7 +95,7 @@ namespace Bykhovtsev.Nsudotnet.TicTacToeConsole
             return "";
         }
 
-        private static void PaintField(InternalGame.Game game)
+        private static void PaintField(InternalGame.IGame game)
         {
             InternalGame.Symbol[,] field = game.GetGameField();
             InternalGame.Symbol[,] generalView = game.GetGameGeneralView();

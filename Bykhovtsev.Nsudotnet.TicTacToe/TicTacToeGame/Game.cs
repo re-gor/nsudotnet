@@ -14,7 +14,7 @@ namespace Bykhovtsev.Nsudotnet.TicTacToe
     /// <item><term>Winner</term><description>There is particular winner in current game: cross or nougth</description></item>
     /// <item><term>Game was stopped</term><description>Players stopped game with empty input</description></item>
     /// </summary>
-    public class Game
+    public class Game : IGame
     {
         private Field _gameField = new Field();
         private Symbol _currPlayer = Symbol.Cross;
